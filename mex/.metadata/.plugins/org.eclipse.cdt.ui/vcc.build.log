@@ -1,0 +1,8 @@
+11:37:16 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.033 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+11:37:16 Build Finished (took 62ms)
+

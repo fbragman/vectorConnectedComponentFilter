@@ -1,0 +1,45 @@
+10:30:00 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.095 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+10:32:44 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.058 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+10:32:59 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.091 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Nothing to be done for `all'.
+10:34:33 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.092 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+10:35:18 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.1 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Nothing to be done for `all'.
+10:40:27 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.085 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+10:42:42 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.062 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+make: Nothing to be done for `all'.
+11:36:12 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `makefile' has modification time 0.0086 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+11:37:16 **** Incremental Build of configuration Debug for project vcc ****
+make all 
+make: Warning: File `subdir.mk' has modification time 0.033 s in the future
+make: Nothing to be done for `all'.
+make: warning:  Clock skew detected.  Your build may be incomplete.

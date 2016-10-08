@@ -1,0 +1,17 @@
+/*
+ * vectorConnectedComponentImageFilter.cpp
+ *
+ *  Created on: 9 Feb 2015
+ *      Author: fbragman
+ */
+
+#include <math.h>
+#include <iostream>
+#include "mex.h"
+#include "equivalencyTable.h"
+#include "vccFilter.h"
+
+using namespace std;
+
+
+
