@@ -36,7 +36,7 @@ fprintf('Finished vcc \n');
 end
 
 function [output,eqTable] = VCCfoo(img,mask,d,S,functor)
-%%  Test algorithm
+%%  Algorithm
 %
 %   Inputs:     img     -   vector image
 %               conn    -   connectivity
@@ -53,16 +53,11 @@ vec2     = img(:,:,:,2);
 vec2_pad = padarray(vec2,padVector,0,'pre'); clear vec2;
 vec3     = img(:,:,:,3);
 vec3_pad = padarray(vec3,padVector,0,'pre'); clear vec3;
-
 clear img;
 
 % Pad binary mask
 pad_mask = padarray(mask,padVector,0,'pre');
 siz_pad  = size(pad_mask);
-
-% Changed - hard-code x+1,y+1,z+1 instead
-% Linear index conversion 
-% oit_conv = convertIterator(siz_pad);
 
 % Index image
 [m,n,b]   = size(pad_mask);
@@ -78,10 +73,8 @@ labelType = 'uint32';
 maxPossibleLabel  = intmax(labelType);
 label_img = reshape(maxPossibleLabel*ones(1,N,labelType),m,n,b);
 
-% use mask to mark pixel as unlabelled (same as the padded voxels to be
-% ignored)
+% use mask to mark pixel as unlabelled
 label_img(~pad_mask) = 0;
-% label_img = padarray(label_img,padVector,0,'pre');
 
 % initialise label count
 maxLabel = 0;
@@ -92,7 +85,6 @@ maxLabel = 0;
 % column 3 - neighbour 2 (-1 0)
 eqTable = EquivalencyTable();
 
-% C++ this loop
 fprintf('Starting loop \n');
         
     idxInImg    = find(label_img);
@@ -107,8 +99,8 @@ fprintf('Starting loop \n');
     % | o x o x |     | 0 10 0 20 |
     mask_subVso = sortrows(mask_subV,[3 2 1]);
     idxInImgso  = subv2ind(size(label_img),mask_subVso);
-tic    
-    % idxInImg  = find(label_img);
+
+
     for idx = 1:numel(idxInImgso)
         fprintf('%f percent complete \n',(idx/numel(idxInImgso))*100);
  
@@ -116,14 +108,9 @@ tic
         oit = idxInImgso(idx);
         
         % Directly converted
-%         label = label_img(oit_conv(it));
         label = label_img(it);
-        
-%         value = [vec1_pad(oit_conv(it)) ...
-%             vec2_pad(oit_conv(it)) ...
-%             vec3_pad(oit_conv(it))];
-        
-        % operating on logical index of padded array, not need to convert
+                
+        % operating on logical index of padded array
         value = [ vec1_pad(it) ...
                   vec2_pad(it) ...
                   vec3_pad(it) ];
@@ -131,7 +118,6 @@ tic
         originalLabel = label;
         
         % Find previous connected neighbour
-%         [init,onit] = nhoodIterator(oit_conv(oit),siz_pad);
         [init,onit] = nhoodIterator(oit,siz_pad);
         
         for niter = 1:d
@@ -192,15 +178,11 @@ tic
         % Set output pixel to label we currently have
         if (label ~= originalLabel)
             
-%             label_img(oit_conv(oit)) = label;
             label_img(oit) = label;
-            
+   
         end
-        
-        % oit   = oit + 1;
-        % it    = it + 1;
+      
     end
-toc
 
 % Flatten equivalency table
 eqTable.Flatten();
